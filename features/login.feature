@@ -9,3 +9,11 @@ Feature: Login
         And Preenche o campo senha
         When clica no botão de login
         Then o sistema apresenta uma mensagem de erro
+
+    Scenario: Logando corretamente
+        Given o usuário possui uma conta
+        And acessa a tela de login
+        And preenche o campo e-mail corretamente com "cv_user@gmail.com"
+        And Preenche o campo senha corretamente com "123456"
+        When clica no botão de login
+        Then o sistema direciona o usuário para o feed de publicações
