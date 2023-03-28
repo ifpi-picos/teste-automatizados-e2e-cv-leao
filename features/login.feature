@@ -33,3 +33,10 @@ Feature: Login
         And preenche o campo senha com "654321"
         When clica no botão entrar
         Then surge uma mensagem vermelha de alerta avisando que a combinação de e-mail/senha está incorreta
+
+    Scenario: E-mail inválido
+        Given o usuário vai fazer login
+        And preenche o campo de e-mail com "aaaaaaaaa"
+        Then surge uma mensagem vermelha informando que o e-mail é inválido
+        And preenche o campo senha com "123456"
+        Then o botão de entrar não é liberado, pois para ser precisa que o campo e-mail esteja com um e-mail válido e o campo senha esteja preenchido
