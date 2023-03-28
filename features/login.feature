@@ -26,3 +26,10 @@ Feature: Login
         When clica no campo de e-mail
         And clica em outro local da tela
         Then surge uma mensagem vermelha na tela informando que é obrigatório preencher o campo e-mail
+
+    Scenario: Senha incorreta
+        Given o usuário vai fazer login
+        And preenche corretamente o campo de e-mail com "cv_user@gmail.com"
+        And preenche o campo senha com "654321"
+        When clica no botão entrar
+        Then surge uma mensagem vermelha de alerta avisando que a combinação de e-mail/senha está incorreta
