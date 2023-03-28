@@ -19,3 +19,11 @@ Feature: Editar perfil
         Then a ocupação é modificada na tela
         But ao ir para outro tela
         And voltar para a tela de perfil, a ocupação não foi atualizada de fato
+
+    Scenario: Editar número do WhatsApp
+        Given o usuário vai editar seu número de WhatsApp no sistema
+        And já está na tela de perfil
+        And clica em editar perfil
+        And modifica o campo de número de WhatsApp
+        Then clica em salvar
+        Then o número de WhatsApp é modificada na tela
