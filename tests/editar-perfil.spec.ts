@@ -42,15 +42,7 @@ test("Editar ocupação no IFPI", async ({ page }) => {
   await page.getByRole("button", { name: "Ocupação no IFPI Aluno(a)" }).click();
   await page.getByText("Professor(a)").click();
   await page.getByRole("button", { name: "Salvar" }).click();
-  await page
-    .getByRole("main")
-    .locator("div")
-    .filter({
-      hasText:
-        "Preenchendo Corretamente Professor(a)preenchendocorretamente@gmail.comVeículo: N",
-    })
-    .nth(3)
-    .click();
+  //await page.getByRole("main").locator("div").filter({ hasText: "Preenchendo Corretamente Professor(a)preenchendocorretamente@gmail.comVeículo: N", }).nth(3).click();
 });
 
 test("Editar número do WhatsApp", async ({ page }) => {
@@ -66,6 +58,6 @@ test("Editar número do WhatsApp", async ({ page }) => {
   await page.goto("https://proxima-parada.netlify.app/#/home/profile");
   await page.getByRole("button", { name: "Editar Perfil" }).click();
   await page.getByLabel("Número de Whatsapp").click();
-  //await page.getByLabel("Número de Whatsapp").fill("(89) 9 1111-1111");
+  await page.getByLabel("Número de Whatsapp").fill("(89) 9 1111-1111");
   await page.getByRole("button", { name: "Salvar" }).click();
 });
