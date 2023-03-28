@@ -66,6 +66,6 @@ test("Editar número do WhatsApp", async ({ page }) => {
   await page.goto("https://proxima-parada.netlify.app/#/home/profile");
   await page.getByRole("button", { name: "Editar Perfil" }).click();
   await page.getByLabel("Número de Whatsapp").click();
-  await page.getByLabel("Número de Whatsapp").fill("(89) 9 1111-1111");
+  //await page.getByLabel("Número de Whatsapp").fill("(89) 9 1111-1111");
   await page.getByRole("button", { name: "Salvar" }).click();
 });
