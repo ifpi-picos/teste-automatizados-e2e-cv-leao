@@ -17,6 +17,17 @@ Feature: Criar conta
         And preenche corretamente o campo senha
         And preenche corretamente o campo de confirmar senha
         Then o botão de cadastrar não é liberado, pois para ser, precisa de todos os campos preenchidos
-        When clica no campo de ocupação no IFPI e clica em outro local na tela
+        And clica no campo de ocupação no IFPI
+        And clica em outro local na tela
         Then surge uma mensagem vermelha na tela indicando a obrigatoriedade do campo ocupação no IFPI
 
+    Scenario: Campo obrigatório “E-mail”
+        Given o usuário vai criar uma conta
+        And preenche corretamente o campo de nome
+        And preenche corretamente o campo de ocupação no IFPI
+        And preenche corretamente o campo senha
+        And preenche corretamente o campo de confirmar senha
+        Then o botão de cadastrar não é liberado, pois para ser, precisa de todos os campos preenchidos
+        And clica no campo e-mail
+        And clica em outro local da tela
+        Then surge uma mensagem vermelha na tela indicando a obrigatoriedade do campo e-mail
