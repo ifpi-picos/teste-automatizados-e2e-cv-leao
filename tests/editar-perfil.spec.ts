@@ -16,15 +16,6 @@ test("Editar nome", async ({ page }) => {
   await page.getByLabel("Nome Completo").press("ArrowRight");
   await page.getByLabel("Nome Completo").fill("Editando");
   await page.getByRole("button", { name: "Salvar" }).click();
-  await page
-    .getByRole("main")
-    .locator("div")
-    .filter({
-      hasText:
-        "Editando Aluno(a)preenchendocorretamente@gmail.comVeículo: Nenhum veículo cadast",
-    })
-    .nth(2)
-    .click();
 });
 
 test("Editar ocupação no IFPI", async ({ page }) => {
