@@ -64,29 +64,9 @@ test("Senha incorreta", async ({ page }) => {
   await page.goto("https://proxima-parada.netlify.app/#/signin");
   await page.getByLabel("E-mail").click();
   await page.getByLabel("E-mail").fill("cv_user@gmail.com");
-  await page
-    .getByText(
-      "mail_outlineE-mailpasswordSenha Entrar Novo no Próxima Parada? Criar conta"
-    )
-    .click();
-  await page
-    .getByText(
-      "mail_outlineE-mailpasswordSenha Entrar Novo no Próxima Parada? Criar conta"
-    )
-    .click();
   await page.getByLabel("Senha").click();
-  await page
-    .locator("section")
-    .filter({
-      hasText:
-        "Próxima Parada O Próxima Parada é um sistema que irá facilitar o deslocamento en",
-    })
-    .click();
-  await page
-    .getByText(
-      "mail_outlineE-mailpasswordSenhaObrigatório. Entrar Novo no Próxima Parada? Criar"
-    )
-    .click();
-  await page.getByText("Obrigatório.").click();
-  await page.getByText("Obrigatório.").click();
+  await page.getByLabel("Senha").fill("654321");
+  await page.getByRole("button", { name: "Entrar" }).click();
+  await page.getByRole("alert").click();
+  await page.getByRole("alert").click();
 });
