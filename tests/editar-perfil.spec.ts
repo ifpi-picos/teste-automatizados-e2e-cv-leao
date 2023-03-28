@@ -42,7 +42,6 @@ test("Editar ocupação no IFPI", async ({ page }) => {
   await page.getByRole("button", { name: "Ocupação no IFPI Aluno(a)" }).click();
   await page.getByText("Professor(a)").click();
   await page.getByRole("button", { name: "Salvar" }).click();
-  //await page.getByRole("main").locator("div").filter({ hasText: "Preenchendo Corretamente Professor(a)preenchendocorretamente@gmail.comVeículo: N", }).nth(3).click();
 });
 
 test("Editar número do WhatsApp", async ({ page }) => {
