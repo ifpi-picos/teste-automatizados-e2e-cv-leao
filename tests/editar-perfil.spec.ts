@@ -52,3 +52,20 @@ test("Editar ocupação no IFPI", async ({ page }) => {
     .nth(3)
     .click();
 });
+
+test("Editar número do WhatsApp", async ({ page }) => {
+  await page.goto("https://proxima-parada.netlify.app/");
+  await page.goto("https://proxima-parada.netlify.app/#/");
+  await page.goto("https://proxima-parada.netlify.app/#/signin");
+  await page.getByLabel("E-mail").click();
+  await page.getByLabel("E-mail").fill("preenchendocorretamente@gmail.com");
+  await page.getByLabel("Senha").click();
+  await page.getByLabel("Senha").fill("123456");
+  await page.getByRole("button", { name: "Entrar" }).click();
+  await page.waitForTimeout(10000);
+  await page.goto("https://proxima-parada.netlify.app/#/home/profile");
+  await page.getByRole("button", { name: "Editar Perfil" }).click();
+  await page.getByLabel("Número de Whatsapp").click();
+  await page.getByLabel("Número de Whatsapp").fill("(89) 9 1111-1111");
+  await page.getByRole("button", { name: "Salvar" }).click();
+});
