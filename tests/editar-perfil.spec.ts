@@ -26,3 +26,29 @@ test("Editar nome", async ({ page }) => {
     .nth(2)
     .click();
 });
+
+test("Editar ocupação no IFPI", async ({ page }) => {
+  await page.goto("https://proxima-parada.netlify.app/");
+  await page.goto("https://proxima-parada.netlify.app/#/");
+  await page.goto("https://proxima-parada.netlify.app/#/signin");
+  await page.getByLabel("E-mail").click();
+  await page.getByLabel("E-mail").fill("preenchendocorretamente@gmail.com");
+  await page.getByLabel("Senha").click();
+  await page.getByLabel("Senha").fill("123456");
+  await page.getByRole("button", { name: "Entrar" }).click();
+  await page.waitForTimeout(10000);
+  await page.goto("https://proxima-parada.netlify.app/#/home/profile");
+  await page.getByRole("button", { name: "Editar Perfil" }).click();
+  await page.getByRole("button", { name: "Ocupação no IFPI Aluno(a)" }).click();
+  await page.getByText("Professor(a)").click();
+  await page.getByRole("button", { name: "Salvar" }).click();
+  await page
+    .getByRole("main")
+    .locator("div")
+    .filter({
+      hasText:
+        "Preenchendo Corretamente Professor(a)preenchendocorretamente@gmail.comVeículo: N",
+    })
+    .nth(3)
+    .click();
+});
