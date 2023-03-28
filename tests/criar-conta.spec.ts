@@ -76,3 +76,39 @@ test("Campo obrigatório “Ocupação no IFPI”", async ({ page }) => {
     )
     .click();
 });
+
+test("Campo obrigatório “E-mail”", async ({ page }) => {
+  await page.goto("https://proxima-parada.netlify.app/");
+  await page.goto("https://proxima-parada.netlify.app/#/");
+  await page.goto("https://proxima-parada.netlify.app/#/signin");
+  await page.getByRole("link", { name: "Criar conta" }).click();
+  await page.getByLabel("Nome Completo").click();
+  await page.getByLabel("Nome Completo").fill("Teste QA");
+  await page.getByLabel("Ocupação no IFPI").click();
+  await page
+    .getByRole("option", { name: "Aluno(a)" })
+    .locator("div")
+    .first()
+    .click();
+  await page.getByLabel("Senha", { exact: true }).click();
+  await page.getByLabel("Senha", { exact: true }).fill("123456");
+  await page.getByLabel("Comfirmar senha").click();
+  await page.getByLabel("Comfirmar senha").fill("123456");
+  await page
+    .getByText(
+      "perm_identityNome Completowork_outlineOcupação no IFPIAluno(a)mail_outlineE-mail"
+    )
+    .click();
+  await page
+    .getByText(
+      "perm_identityNome Completowork_outlineOcupação no IFPIAluno(a)mail_outlineE-mail"
+    )
+    .click();
+  await page.getByLabel("E-mail").click();
+  await page
+    .getByText(
+      "perm_identityNome Completowork_outlineOcupação no IFPIAluno(a)mail_outlineE-mail"
+    )
+    .click();
+  await page.getByText("Obrigatório.").click();
+});
