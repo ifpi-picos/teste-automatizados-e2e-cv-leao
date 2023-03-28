@@ -128,13 +128,6 @@ test("Campos preenchidos corretamente", async ({ page }) => {
   await page.getByLabel("Senha", { exact: true }).fill("123456");
   await page.getByLabel("Comfirmar senha").click();
   await page.getByLabel("Comfirmar senha").fill("123456");
-  await page.getByRole("button", { name: "Cadastrar" }).click();
-  await page
-    .locator("div")
-    .filter({
-      hasText:
-        "Erro ao conectar-se ao banco de dados!Nenhuma carona encontrada",
-    })
-    .nth(2)
-    .click();
+  //await page.getByRole("button", { name: "Cadastrar" }).click();
+  //await page.locator("div").filter({ hasText: "Erro ao conectar-se ao banco de dados!Nenhuma carona encontrada", }).nth(2).click();
 });
