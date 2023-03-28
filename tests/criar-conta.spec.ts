@@ -131,3 +131,23 @@ test("Campos preenchidos corretamente", async ({ page }) => {
   //await page.getByRole("button", { name: "Cadastrar" }).click();
   //await page.locator("div").filter({ hasText: "Erro ao conectar-se ao banco de dados!Nenhuma carona encontrada", }).nth(2).click();
 });
+
+test("Criar conta que já é cadastrada", async ({ page }) => {
+  await page.goto("https://proxima-parada.netlify.app/");
+  await page.goto("https://proxima-parada.netlify.app/#/");
+  await page.goto("https://proxima-parada.netlify.app/#/signin");
+  await page.getByRole("link", { name: "Criar conta" }).click();
+  await page.getByLabel("Nome Completo").click();
+  await page.getByLabel("Nome Completo").fill("Teste QA");
+  await page.getByLabel("Ocupação no IFPI").click();
+  await page.getByText("Aluno(a)").click();
+  await page.getByLabel("E-mail").click();
+  await page.getByLabel("E-mail").fill("preenchendocorretamente5@gmail.com");
+  await page.getByLabel("Senha", { exact: true }).click();
+  await page.getByLabel("Senha", { exact: true }).fill("123456");
+  await page.getByLabel("Comfirmar senha").click();
+  await page.getByLabel("Comfirmar senha").fill("123456");
+  await page.getByRole("button", { name: "Cadastrar" }).click();
+  await page.getByRole("alert").click();
+  await page.getByRole("alert").click();
+});
