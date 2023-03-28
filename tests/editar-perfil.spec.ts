@@ -73,9 +73,4 @@ test("Fazer modificações na tela de edição e clicar em cancelar para testar 
   await page.getByLabel("Número de Whatsapp").click();
   await page.getByLabel("Número de Whatsapp").fill("(22) 2 2222-2222");
   await page.getByRole("button", { name: "Cancelar" }).click();
-  await page
-    .getByText(
-      "Erro ao conectar-se ao banco de dados!Erro ao conectar-se ao banco de dados! aaa"
-    )
-    .click();
 });
