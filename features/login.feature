@@ -17,3 +17,12 @@ Feature: Login
         And Preenche o campo senha corretamente com "123456"
         When clica no botão de login
         Then o sistema direciona o usuário para o feed de publicações
+
+    Scenario: Campo e-mail obrigatório
+        Given o usuário vai fazer login
+        And não preenche o campo de e-mail
+        And preenche o campo de senha
+        Then o botão de entrar não é liberado, pois os dois campos devem estar preenchidos
+        When clica no campo de e-mail
+        And clica em outro local da tela
+        Then surge uma mensagem vermelha na tela informando que é obrigatório preencher o campo e-mail
