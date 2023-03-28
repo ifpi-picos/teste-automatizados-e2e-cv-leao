@@ -42,3 +42,37 @@ test("Campo obrigatório “Nome Completo”", async ({ page }) => {
     )
     .click();
 });
+
+test("Campo obrigatório “Ocupação no IFPI”", async ({ page }) => {
+  await page.goto("https://proxima-parada.netlify.app/");
+  await page.goto("https://proxima-parada.netlify.app/#/");
+  await page.goto("https://proxima-parada.netlify.app/#/signin");
+  await page.getByRole("link", { name: "Criar conta" }).click();
+  await page.getByLabel("Nome Completo").click();
+  await page.getByLabel("Nome Completo").fill("Teste QA");
+  await page.getByLabel("E-mail").click();
+  await page.getByLabel("E-mail").fill("testeqa@gmail.com");
+  await page.getByLabel("Senha", { exact: true }).click();
+  await page.getByLabel("Senha", { exact: true }).fill("123456");
+  await page.getByLabel("Comfirmar senha").click();
+  await page.getByLabel("Comfirmar senha").fill("123456");
+  await page
+    .getByText(
+      "perm_identityNome Completowork_outlineOcupação no IFPImail_outlineE-mailpassword"
+    )
+    .click();
+  await page.getByRole("button", { name: "Ocupação no IFPI" }).click();
+  await page
+    .locator("section")
+    .filter({
+      hasText:
+        "Próxima Parada O Próxima Parada é um sistema que irá facilitar o deslocamento en",
+    })
+    .click();
+  await page.getByText("Obrigatório.").click();
+  await page
+    .getByText(
+      "perm_identityNome Completowork_outlineOcupação no IFPIObrigatório.mail_outlineE-"
+    )
+    .click();
+});
