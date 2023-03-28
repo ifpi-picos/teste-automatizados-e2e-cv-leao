@@ -119,11 +119,11 @@ test("Campos preenchidos corretamente", async ({ page }) => {
   await page.goto("https://proxima-parada.netlify.app/#/signin");
   await page.getByRole("link", { name: "Criar conta" }).click();
   await page.getByLabel("Nome Completo").click();
-  await page.getByLabel("Nome Completo").fill("Preenchendo Corretamente 3");
+  await page.getByLabel("Nome Completo").fill("Preenchendo Corretamente 5");
   await page.getByLabel("Ocupação no IFPI").click();
   await page.getByText("Aluno(a)").click();
   await page.getByLabel("E-mail").click();
-  await page.getByLabel("E-mail").fill("preenchendocorretamente3@gmail.com");
+  await page.getByLabel("E-mail").fill("preenchendocorretamente5@gmail.com");
   await page.getByLabel("Senha", { exact: true }).click();
   await page.getByLabel("Senha", { exact: true }).fill("123456");
   await page.getByLabel("Comfirmar senha").click();
