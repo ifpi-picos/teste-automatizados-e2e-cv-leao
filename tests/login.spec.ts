@@ -31,3 +31,29 @@ test("Logando corretamente", async ({ page }) => {
     .nth(2)
     .click();
 });
+
+test("Campo e-mail obrigatório", async ({ page }) => {
+  await page.goto("https://proxima-parada.netlify.app/");
+  await page.goto("https://proxima-parada.netlify.app/#/");
+  await page.goto("https://proxima-parada.netlify.app/#/signin");
+  await page.getByLabel("Senha").click();
+  await page.getByLabel("Senha").fill("123456");
+  await page
+    .getByText(
+      "mail_outlineE-mailpasswordSenha Entrar Novo no Próxima Parada? Criar conta"
+    )
+    .click();
+  await page
+    .getByText(
+      "mail_outlineE-mailpasswordSenha Entrar Novo no Próxima Parada? Criar conta"
+    )
+    .click();
+  await page.getByLabel("E-mail").click();
+  await page
+    .getByText(
+      "mail_outlineE-mailpasswordSenha Entrar Novo no Próxima Parada? Criar conta"
+    )
+    .click();
+  await page.getByText("Obrigatório.").click();
+  await page.getByText("Obrigatório.").click();
+});
