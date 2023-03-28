@@ -41,3 +41,13 @@ Feature: Criar conta
         And preenche corretamente o campo de confirmar senha
         Then clica no botão de cadastrar
         And é direcionado para o feed de publicações de caronas do site
+
+    Scenario: Criar conta que já é cadastrada
+        Given o usuário vai criar uma conta
+        And preenche o campo de nome com "Teste QA"
+        And preenche o campo de ocupação no IFPI com "Aluno"
+        And preenche o campo de e-mail com "preenchendocorretamente@gmail.com"
+        And preenche o campo senha com "123456"
+        And preenche o campo de confirmar senha com "123456"
+        Then clica no botão de cadastrar
+        And surge uma mensagem vermelha na tela avisando que o e-mail informado já está sendo utilizado
