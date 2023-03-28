@@ -41,4 +41,3 @@ Feature: Criar conta
         And preenche corretamente o campo de confirmar senha
         Then clica no botão de cadastrar
         And é direcionado para o feed de publicações de caronas do site
-
