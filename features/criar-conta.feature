@@ -31,3 +31,14 @@ Feature: Criar conta
         And clica no campo e-mail
         And clica em outro local da tela
         Then surge uma mensagem vermelha na tela indicando a obrigatoriedade do campo e-mail
+
+    Scenario: Campos preenchidos corretamente
+        Given o usuário vai criar uma conta
+        And preenche corretamente o campo de nome
+        And preenche corretamente o campo de ocupação no IFPI
+        And preenche corretamente o campo de e-mail
+        And preenche corretamente o campo senha
+        And preenche corretamente o campo de confirmar senha
+        Then clica no botão de cadastrar
+        And é direcionado para o feed de publicações de caronas do site
+
